@@ -113,7 +113,7 @@ jobs:
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   safety:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
