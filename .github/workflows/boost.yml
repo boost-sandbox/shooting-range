@@ -12,24 +12,22 @@ on:
       - synchronize
 jobs:
   brakeman:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   bundler-audit:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         env:
           GEMFILE_LOCK: railgoat/Gemfile.lock
@@ -38,24 +36,22 @@ jobs:
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   checkov:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   codeql:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         env:
           CODEQL_LANGUAGE: ruby
@@ -64,72 +60,66 @@ jobs:
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   gitleaks:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   gosec:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   nancy:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   native-scanner:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   npm-audit:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   safety:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         env:
           REQUIREMENTS_TXT: safety-demo/requirements.txt
@@ -138,24 +128,22 @@ jobs:
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   semgrep:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         with:
           api_endpoint: https://api.dev.boostsec.io
           api_token: ${{ secrets.BOOST_API_KEY_DEV }}
           registry_module: boostsecurityio/${{ github.job }}
   snyk-test:
-    name: module ${{ github.job }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: module ${{ github.job }}
+      - name: module
         uses: boostsecurityio/boostsec-scanner-github@v4
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
