@@ -1,0 +1,139 @@
+name: boostsecurity.io (Prod)
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+jobs:
+  brakeman:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  bundler-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  checkov:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  codeql:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        env:
+          CODEQL_LANGUAGE: ruby
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  gitleaks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  gosec:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  nancy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  native-scanner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  npm-audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  safety:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+          additional_args: --log-level=DEBUG --log-verbose
+  semgrep:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+  snyk-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: module
+        uses: boostsecurityio/boostsec-scanner-github@v4
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          api_token: ${{ secrets.BOOST_API_KEY }}
+          registry_module: boostsecurityio/${{ github.job }}
+          additional_args: --log-level=DEBUG --log-verbose
